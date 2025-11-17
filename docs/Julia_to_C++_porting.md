@@ -8,10 +8,10 @@
 | **CharFuncPricing.jl** | Library for pricing financial derivatives using characteristic functions (e.g.\ Levy models).  Includes Fourier/FFT‑based pricing, numerical quadrature and root solving. | `AbstractFFTs`, `BenchmarkTools`, `DoubleExponentialFormulas`, `FastGaussQuadrature`, `ForwardDiff`, `LinearAlgebra`, `MFFT`, `Nemo`, `Optim`, `Revise`, `Roots`, `SpecialFunctions`, `StatsBase`, `TestEnv` and related packages【851296527575676†screenshot】. |
 | **AQFED.jl** | Collection of algorithms for **A**rbitrage‑**Q**uestionable **F**inancial **E**ngineering and derivatives pricing.  It includes Monte‑Carlo simulations, spline approximations, root finding and optimization routines. | Very broad set of dependencies including `AbstractAlgebra`, `BSplines`, `COSMO`, `CharFuncPricing`, `Colors`, `Convex`, `DSP`, `DataFrames`, `DelimitedFiles`, `Dierckx`, `Distributions`, `DoubleExponentialFormulas`, `FFTW`, `FastGaussQuadrature`, `FiniteDifferences`, `ForwardDiff`, `HypergeometricFunctions`, `Images`, `LeastSquaresOptim`, `LinearAlgebra`, `LsqFit`, `Measures`, `NLsolve`, `OffsetArrays`, `Optim`, `PPInterpolation`, `Polynomials`, `PolynomialRoots`, `QuadGK`, `Random`, `RandomNumbers`, `Revise`, `Roots`, `Sobol`, `SparseArrays`, `SpecialFunctions`, `Statistics`, `StatsBase`, `TaylorSeries`, `Test` and more【3862225395296†screenshot】. |
 | **LaverySpline.jl** | Implements Lavery’s rational cubic spline and related interpolation tools. | Depends on `Cbc` (Coin‑OR branch‑and‑cut solver), `JuMP` (optimization modeling), `LinearAlgebra` and reuses `PPInterpolation` for piecewise polynomial interpolation【689619311621031†screenshot】. |
-| **MonteCarloMeanVarianceExamples.jl** | Examples that demonstrate Monte‑Carlo estimation of mean/variance for various distributions. | Uses `Distributions`, `Random`, `Statistics`, `Plots`, `StatsBase`, etc.  (This repo provides examples rather than core library code.) |
+| **MonteCarloMeanVarianceExamples.jl** | Examples that demonstrate Monte‑Carlo estimation of mean/variance for various distributions. | Uses `D
 | **Roots.jl** | Provides robust numerical root‑finding algorithms (e.g.\ bracketing methods, Newton/Raphson, secant).  It is a widely used Julia library. | `LinearAlgebra`, `Statistics`, `Printf`, `Random` and test utilities.  Other packages (e.g.\ `CharFuncPricing` and `AQFED`) depend on this library. |
-| **gonum** (Go) | A set of numeric libraries for the Go programming language.  It does not contain Julia code but was forked as part of the user’s request. | Written in Go; its dependencies are not directly relevant to the Julia code but could inspire porting strategies. |
 | **jherekhealy.github.io** | Source for the author’s website; mostly HTML/Markdown.  Not directly relevant to computational functionality. |
+
 
 ## Cross‑Repository Dependency Relationships
 
@@ -39,7 +39,7 @@ The user requested merging all forked repos into a single `julia` repository.  A
 2. **Organize subdirectories**:  
    - For each forked repository (e.g.\ `PPInterpolation.jl`, `CharFuncPricing.jl`, etc.), create a subdirectory inside the `julia` repo with the same name, such as `PPInterpolation`, `CharFuncPricing`, `AQFED`, etc.  
    - Copy the source code (`src/`, `test/`, `Project.toml`) from each forked repo into its corresponding subdirectory.  Keep commit history separate if needed (e.g.\ via git submodules or by copying files and preserving authorship in commit messages).  
-   - Exclude the website repository (`jherekhealy.github.io`) and Go library (`gonum`) unless needed; they are not part of the Julia codebase.
+   - Exclude the website repository (`jherekhealy.github.io`) unless needed; it is not part of the Julia codebase.
 3. **Commit the merged code**:  
    - Once the directories are in place, add them to git, commit with a message like “Import code from …” and push to your `julia` repository.  This action will modify your GitHub repository and should be done after reviewing the changes.
 
